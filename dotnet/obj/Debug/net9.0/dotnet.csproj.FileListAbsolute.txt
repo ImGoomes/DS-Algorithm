@@ -1,0 +1,15 @@
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/bin/Debug/net9.0/dotnet
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/bin/Debug/net9.0/dotnet.deps.json
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/bin/Debug/net9.0/dotnet.runtimeconfig.json
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/bin/Debug/net9.0/dotnet.dll
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/bin/Debug/net9.0/dotnet.pdb
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/obj/Debug/net9.0/dotnet.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/obj/Debug/net9.0/dotnet.AssemblyInfoInputs.cache
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/obj/Debug/net9.0/dotnet.AssemblyInfo.cs
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/obj/Debug/net9.0/dotnet.csproj.CoreCompileInputs.cache
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/obj/Debug/net9.0/dotnet.sourcelink.json
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/obj/Debug/net9.0/dotnet.dll
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/obj/Debug/net9.0/refint/dotnet.dll
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/obj/Debug/net9.0/dotnet.pdb
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/obj/Debug/net9.0/dotnet.genruntimeconfig.cache
+/Users/gabrielgomes/Workspace/My/leetcode/LC4F/dotnet/obj/Debug/net9.0/ref/dotnet.dll
