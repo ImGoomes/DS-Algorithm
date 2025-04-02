@@ -2,16 +2,31 @@ using System.Collections;
 using System.Net.Mail;
 using System.Text;
 
-public class ReverseWordsSting {
-    public string ReverseWords(string s) {
+public class ReverseWordsSting
+{
+    public string ReverseWords(string s)
+    {
         StringBuilder sb = new StringBuilder(s);
+        int lastSpace = 0;
 
-        for (int left = 0, right = 0; right < sb.Length; right++) {
+        for (int left = 0, right = 0; right < sb.Length; right++)
+        {
+      
+            if (sb[right].Equals(' ') || left < lastSpace || right == sb.Length-1)
+            {
+                lastSpace = right;
 
-            if(sb[right].Equals(' ')){
-                char rightChar = sb[right-1];
-                sb[right-1] = s[left];
-                sb[left] = rightChar;
+                while (left < right)
+                {
+                    right--;
+                    char rightChar = sb[right];
+                    sb[right] = s[left];
+                    sb[left] = rightChar;
+                    left++;
+                }
+
+                right = lastSpace + 1;
+                left = lastSpace + 1;
             }
         }
 
