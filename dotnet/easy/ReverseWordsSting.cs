@@ -2,7 +2,7 @@ using System.Collections;
 using System.Net.Mail;
 using System.Text;
 
-public class ReverseWordsSting
+public class ReverseWordsString
 {
     public string ReverseWords(string s)
     {
