@@ -5,11 +5,11 @@ public class Program
     {
 
         //Reverse Words in a String III (Leetcode)
-        // string input = "Let's take LeetCode contest";
-        // ReverseWordsSting reverseWordsSting = new ReverseWordsSting();
-        // Console.WriteLine("Reverse Words in a String III (Leetcode)");
-        // Console.WriteLine("             Input: " + input);
-        // Console.WriteLine("             Output: " + reverseWordsSting.ReverseWords(input));
+        string input = "Let's take LeetCode contest";
+        ReverseWordsSting reverseWordsSting = new ReverseWordsSting();
+        Console.WriteLine("Reverse Words in a String III (Leetcode)");
+        Console.WriteLine("             Input: " + input);
+        Console.WriteLine("             Output: " + reverseWordsSting.ReverseWords(input));
 
         //Removable Characters in a String (HackerRank Interview)
         string str1 = "abdgggda";
