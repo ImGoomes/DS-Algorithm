@@ -17,7 +17,7 @@ public class Program
         RemovableCharactersString removableCharactersString = new RemovableCharactersString();
         Console.WriteLine("Removable Characters in a String (HackerRank Interview)");
         foreach (int item in removableCharactersString.RemovableCharacters(str1, str2))
-            Console.WriteLine("             Output: " + item);
+            Console.WriteLine("            Output Index: " + item);
 
 
 
