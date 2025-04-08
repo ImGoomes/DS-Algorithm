@@ -6,7 +6,7 @@ public class Program
 
         //Reverse Words in a String III (Leetcode)
         string input = "Let's take LeetCode contest";
-        ReverseWordsSting reverseWordsSting = new ReverseWordsSting();
+        ReverseWordsString reverseWordsSting = new ReverseWordsString();
         Console.WriteLine("Reverse Words in a String III (Leetcode)");
         Console.WriteLine("             Input: " + input);
         Console.WriteLine("             Output: " + reverseWordsSting.ReverseWords(input));
