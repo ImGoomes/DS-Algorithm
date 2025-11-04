@@ -1,4 +1,9 @@
+import traceback
+
 def fat(x):
+    print(f"\nCurrent call stack: fat({x})")
+    traceback.print_stack(limit=20)
+ 
     if x == 1:
         return 1
     else:
