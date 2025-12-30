@@ -1,5 +1,5 @@
 processed = []
-   
+
 def dijkstra(graphs, costs, parent):
     node = node_with_lowest_cost(costs)
     while node is not None: 
@@ -23,11 +23,11 @@ def node_with_lowest_cost(costs):
             node_with_lowest_cost = node
     return node_with_lowest_cost
 
-def main(): 
+def main():
     graphs = {}
     graphs["start"] = {}
-    graphs["start"]["a"] = 10 
-    
+    graphs["start"]["a"] = 10
+
     graphs["a"] = {}
     graphs["a"]["c"] = 20
 
@@ -54,7 +54,7 @@ def main():
     parent["c"] = None
     parent["d"] = None
     parent["end"] = None
-    
+
     dijkstra(graphs, costs, parent)
     print(f"Shortest cost to end: {costs['end']}")
 
