@@ -26,37 +26,31 @@ def node_with_lowest_cost(costs):
 def main(): 
     graphs = {}
     graphs["start"] = {}
-    graphs["start"]["a"] = 5 
-    graphs["start"]["b"] = 2
+    graphs["start"]["a"] = 10 
     
     graphs["a"] = {}
-    graphs["a"]["c"] = 4
-    graphs["a"]["d"] = 2
-    
-    graphs["b"] = {}
-    graphs["b"]["a"] = 8
-    graphs["b"]["d"] = 7
+    graphs["a"]["c"] = 20
 
     graphs["c"] = {}
-    graphs["c"]["end"] = 3
-    graphs["c"]["d"] = 6
+    graphs["c"]["b"] = 1
+    graphs["c"]["end"] = 30
 
-    graphs["d"] = {}
-    graphs["d"]["end"] = 1
+    graphs["b"] = {}
+    graphs["b"]["a"] = 1
 
     graphs["end"] = {}
 
     infinit = float("inf")
     costs = {}
-    costs["a"] = 5
-    costs["b"] = 2
+    costs["a"] = 10
+    costs["b"] = infinit
     costs["c"] = infinit
     costs["d"] = infinit
     costs["end"] = infinit
 
     parent = {}
     parent["a"] = "start"
-    parent["b"] = "start"
+    parent["b"] = None
     parent["c"] = None
     parent["d"] = None
     parent["end"] = None
