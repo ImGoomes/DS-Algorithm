@@ -1,14 +1,16 @@
 def find_zero_quantity(code_arr: list[str]) -> int:
     zero_count = 0
     dial_index = 50
+    dial_size = 100
 
     for item in code_arr:
-        rotate_value = int(item[1:]) % 100
+        rotation = item[0]
+        rotate_value = int(item[1:]) % dial_size
 
-        if item[0] == "L":
-            dial_index = (dial_index - rotate_value) % 100
+        if rotation == "L":
+            dial_index = (dial_index - rotate_value) % dial_size
         else:
-            dial_index = (dial_index + rotate_value) % 100
+            dial_index = (dial_index + rotate_value) % dial_size
 
         if dial_index == 0:
             zero_count += 1
