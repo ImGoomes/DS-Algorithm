@@ -4798,7 +4798,6 @@ R19
 L43"""
 
     code_arr = [line.strip() for line in raw_data.strip().splitlines()]
-    print(f"Total de itens: {len(code_arr)}")
 
     print("Result: ", find_zero_quantity(code_arr))
 
