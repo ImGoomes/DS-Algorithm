@@ -62,8 +62,11 @@ def find_invalid_ids(range):
 
 
 def sum_invalid_ids(invalid_ids):
+    result = 0
     for item in invalid_ids:
-        print(item)
+        result += item
+
+    return result
 
 
 def main() -> None:
@@ -71,10 +74,10 @@ def main() -> None:
     invalid_ids = []
 
     # Format range
-    invalid_ids.append(format_range(raw_range))
+    invalid_ids += format_range(raw_range)
 
     # Sum invalid numbers
-    sum_invalid_ids(invalid_ids)
+    print(sum_invalid_ids(invalid_ids))
 
 
 main()
