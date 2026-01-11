@@ -4,14 +4,18 @@
 # Send this range to the function responsible to Invalid_id
 
 # DC2: Find invalid IDs
-
+# Verify if it divisible by 2
+# Verify if first array is equal second array
+# Add the invalid IDs into array
 
 # DC3:Sum all invalid IDs
+# Sum all invalid IDs
 
 
 def format_range(raw_range):
     range_arr = []
     split_range = raw_range.split(",")
+    invalid_ids = []
 
     for item in split_range:
         range_numbers = item.split("-")
@@ -27,13 +31,38 @@ def format_range(raw_range):
                 range_arr = range(start, end + 1)
 
                 # Verify invalid number
-                find_invalid_ids(range_arr)
+                invalid_ids += find_invalid_ids(range_arr)
             else:
                 print("Not valid range numbers")
 
+    return invalid_ids
+
 
 def find_invalid_ids(range):
+    invalid_ids_range = []
     for item in range:
+        item_arr = list(map(int, str(item)))
+
+        if len(item_arr) % 2 == 0:
+            slice_index = int(len(item_arr) / 2)
+
+            first_slice = int("".join(map(str, item_arr[:slice_index])))
+            second_slice = int("".join(map(str, item_arr[slice_index:])))
+
+            if first_slice == second_slice:
+                invalid_ids_range.append(item)
+
+            # print(f"FIRST: {first_slice}")
+            # print(f"SECOND: {second_slice}")
+
+            # else:
+            # print(f"Not divisible by 2 - Length {len(item_arr)}")
+
+    return invalid_ids_range
+
+
+def sum_invalid_ids(invalid_ids):
+    for item in invalid_ids:
         print(item)
 
 
@@ -42,9 +71,10 @@ def main() -> None:
     invalid_ids = []
 
     # Format range
-    format_range(raw_range)
+    invalid_ids.append(format_range(raw_range))
 
     # Sum invalid numbers
+    sum_invalid_ids(invalid_ids)
 
 
 main()
