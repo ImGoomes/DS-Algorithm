@@ -1,6 +1,10 @@
 # Problem Advent of Code 2025
 # https://adventofcode.com/2025/day/2
 
+
+import numpy as np
+
+
 # format_range(raw_range:str): [[int]]
 # This function will recive the raw input range of number in
 # string format and convert it into a matrix of integer
@@ -43,7 +47,8 @@ def find_invalid_ids(range_matrix: list[list[int]]) -> list[int]:
             item_array = list(map(int, str(item)))
 
             # Verify if the number is divisible by 2
-            # Req: The number must be repeted twice only
+            # Req: The number must be repeted at least twice
+            print(item_array)
             if len(item_array) % 2 == 0:
                 slice_index = len(item_array) // 2
 
@@ -53,13 +58,23 @@ def find_invalid_ids(range_matrix: list[list[int]]) -> list[int]:
                 if first_slice == second_slice:
                     invalid_ids_range.append(item)
             else:
-                print(item_array)
                 index = find_next_equal_number(item_array)
 
-                if index > 0:
-                    print(f"INDEX: {index}")
-                    slice_index = len(item_array) / index
+                if index > 0 and len(item_array) % index == 0:
+                    slice_index = len(item_array) // index
+                    is_repeted_numbers = True
+                    print(item_array)
                     print(f"SLICE {slice_index}")
+                    slice_matrix = np.array_split(item_array, slice_index)
+                    last_array = slice_matrix[0]
+                    for array in slice_matrix:
+                        print(last_array)
+                        print(array)
+                        if not np.array_equal(array, last_array, equal_nan=False):
+                            is_repeted_numbers = False
+
+                    if is_repeted_numbers:
+                        invalid_ids_range.append(item)
 
     return invalid_ids_range
 
@@ -92,8 +107,9 @@ def main() -> None:
     raw_range = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124"
     ranges = format_range(raw_range)
     invalid_ids = find_invalid_ids(ranges)
-    # total_sum = sum_invalid_ids(invalid_ids)
-    # print(total_sum)
+    print(invalid_ids)
+    total_sum = sum_invalid_ids(invalid_ids)
+    print(total_sum)
 
 
 main()
