@@ -1,7 +1,6 @@
 # Problem Advent of Code 2025
 # https://adventofcode.com/2025/day/2
 
-
 import numpy as np
 
 
