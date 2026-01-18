@@ -42,6 +42,7 @@ def find_invalid_ids(range_matrix: list[list[int]]) -> list[int]:
 
     for range_array in range_matrix:
         for item in range_array:
+            item_added = False
             # Split it number of the range in an array of integer
             item_array = list(map(int, str(item)))
 
@@ -55,25 +56,26 @@ def find_invalid_ids(range_matrix: list[list[int]]) -> list[int]:
                 second_slice = int("".join(map(str, item_array[slice_index:])))
 
                 if first_slice == second_slice:
+                    item_added = True
                     invalid_ids_range.append(item)
-            else:
-                index = find_next_equal_number(item_array)
+            # else:
+            index = find_next_equal_number(item_array)
 
-                if index > 0 and len(item_array) % index == 0:
-                    slice_index = len(item_array) // index
-                    is_repeted_numbers = True
-                    print(item_array)
-                    print(f"SLICE {slice_index}")
-                    slice_matrix = np.array_split(item_array, slice_index)
-                    last_array = slice_matrix[0]
-                    for array in slice_matrix:
-                        print(last_array)
-                        print(array)
-                        if not np.array_equal(array, last_array, equal_nan=False):
-                            is_repeted_numbers = False
+            if index > 0 and len(item_array) % index == 0:
+                slice_index = len(item_array) // index
+                is_repeted_numbers = True
+                print(item_array)
+                print(f"SLICE {slice_index}")
+                slice_matrix = np.array_split(item_array, slice_index)
+                last_array = slice_matrix[0]
+                for array in slice_matrix:
+                    print(last_array)
+                    print(array)
+                    if not np.array_equal(array, last_array, equal_nan=False):
+                        is_repeted_numbers = False
 
-                    if is_repeted_numbers:
-                        invalid_ids_range.append(item)
+                if is_repeted_numbers and not item_added:
+                    invalid_ids_range.append(item)
 
     return invalid_ids_range
 
@@ -102,8 +104,8 @@ def find_next_equal_number(item_array: list[int]) -> int:
 
 
 def main() -> None:
-    # raw_range = "269194394-269335492,62371645-62509655,958929250-958994165,1336-3155,723925-849457,4416182-4470506,1775759815-1775887457,44422705-44477011,7612653647-7612728309,235784-396818,751-1236,20-36,4-14,9971242-10046246,8796089-8943190,34266-99164,2931385381-2931511480,277-640,894249-1083306,648255-713763,19167863-19202443,62-92,534463-598755,93-196,2276873-2559254,123712-212673,31261442-31408224,421375-503954,8383763979-8383947043,17194-32288,941928989-941964298,3416-9716"
-    raw_range = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124"
+    raw_range = "269194394-269335492,62371645-62509655,958929250-958994165,1336-3155,723925-849457,4416182-4470506,1775759815-1775887457,44422705-44477011,7612653647-7612728309,235784-396818,751-1236,20-36,4-14,9971242-10046246,8796089-8943190,34266-99164,2931385381-2931511480,277-640,894249-1083306,648255-713763,19167863-19202443,62-92,534463-598755,93-196,2276873-2559254,123712-212673,31261442-31408224,421375-503954,8383763979-8383947043,17194-32288,941928989-941964298,3416-9716"
+    # raw_range = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124"
     ranges = format_range(raw_range)
     invalid_ids = find_invalid_ids(ranges)
     print(invalid_ids)
