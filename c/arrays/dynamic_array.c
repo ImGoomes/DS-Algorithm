@@ -5,7 +5,7 @@ typedef struct {
   int *data;
   int size;
   int capacity;
-} Array;
+} Vector;
 
 
 int main() {
@@ -21,10 +21,10 @@ int next_power_of_2(int n) {
   return cap;
 }
 
-Array *array_new(int inital_capacity){
-  Array *arr = (Array *)malloc(sizeof(Array));
-  arr->capacity = next_power_of_2(inital_capacity);
-  arr->data = (int *)malloc(arr->capacity * sizeof(int));
-  arr->size = 0;
-  return arr;
+Vector *vector_new(int inital_capacity){
+  Vector *v = (Vector *)malloc(sizeof(Vector));
+  v->capacity = next_power_of_2(inital_capacity);
+  v->data = (int *)malloc(v->capacity * sizeof(int));
+  v->size = 0;
+  return v;
 }
