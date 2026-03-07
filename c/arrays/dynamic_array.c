@@ -28,3 +28,32 @@ Vector *vector_new(int inital_capacity){
   v->size = 0;
   return v;
 }
+
+int vector_size(Vector *v){
+  return v->size;
+}
+
+int vector_capacity(Vector *v){
+  return v->capacity;
+}
+
+int vector_at(Vector *v, int i){
+  if (i < 0 || i >= v->size){
+    printf("Array out of bounds\n");
+    exit(1);
+  }
+  
+  return *(v->data + i);
+}
+
+void vector_push(Vector *v, int value){
+  if(v->size == v->capacity){
+    v->capacity = v->capacity * 2;
+    v->data = (int *)realloc(v->data, v->capacity * sizeof(int));
+  }
+
+  *(v->data + v-> size) = value;
+  v->size = v->size + 1;
+}
+
+
