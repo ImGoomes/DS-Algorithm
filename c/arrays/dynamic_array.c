@@ -37,13 +37,13 @@ int vector_capacity(Vector *v){
   return v->capacity;
 }
 
-int vector_at(Vector *v, int i){
-  if (i < 0 || i >= v->size){
+int vector_at(Vector *v, int index){
+  if (index < 0 || index >= v->size){
     printf("Array out of bounds\n");
     exit(1);
   }
   
-  return *(v->data + i);
+  return *(v->data + index);
 }
 
 void vector_push(Vector *v, int value){
@@ -56,4 +56,18 @@ void vector_push(Vector *v, int value){
   v->size = v->size + 1;
 }
 
+void insert_at(Vector *v, int value, int index){
+  int i = v->size;
 
+  if (v->capacity == v->size){
+    v->capacity = v->capacity * 2;
+    v->data = (int *)realloc(v->data, v->capacity * sizeof(int));
+  }
+ 
+  while (i > index) {
+    *(v->data + i) = *(v->data + (i-1));
+    i--;
+  }
+  *(v->data + i) = value;
+  v->size = v->size +1;
+}
