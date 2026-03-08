@@ -7,11 +7,6 @@ typedef struct {
   int capacity;
 } Vector;
 
-
-int main() {
-
-}
-
 int next_power_of_2(int n) {
   int cap = 16;
 
@@ -86,8 +81,37 @@ void delete_at(Vector *v, int index){
   v->size = v->size - 1;
 }
 
-void voctor_free(Vector *v){
+void vector_free(Vector *v){
   free(v->data);
   free(v);
-  *v = NULL;
+}
+
+int main() {
+  Vector *v = vector_new(16);
+
+  int capacity = vector_capacity(v);
+
+  printf("capacity: %d\n", vector_capacity(v));
+
+  vector_push(v, 2);
+  vector_push(v, 4);
+  vector_push(v, 6);
+  vector_push(v, 8);
+
+  printf("Size: %d\n", vector_size(v));
+  printf("Element at 3: %d\n", vector_at(v, 3));
+
+  insert_at(v, 0, 1);
+  printf("Element at 1: %d\n", vector_at(v, 1));
+  
+  delete_at(v, 0);
+  printf("Element at 1: %d\n", vector_at(v, 1));
+
+  int size = vector_size(v);
+  for(int i = 0; i < size; i++){
+    printf("Element at %d: %d\n", i, vector_at(v, i));
+  }
+
+  vector_free(v);
+  v = NULL;
 }
