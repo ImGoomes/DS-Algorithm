@@ -71,3 +71,17 @@ void insert_at(Vector *v, int value, int index){
   *(v->data + i) = value;
   v->size = v->size +1;
 }
+
+void delete_at(Vector *v, int index){
+  if(index >= v->size){
+    printf("Array out of bounds\n");
+    exit(1);
+  }
+
+  while(index < v->size - 1){
+    *(v->data + index) = *(v->data + (index + 1));
+    index++;
+  }
+
+  v->size = v->size - 1;
+}
