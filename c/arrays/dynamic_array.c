@@ -85,3 +85,9 @@ void delete_at(Vector *v, int index){
 
   v->size = v->size - 1;
 }
+
+void voctor_free(Vector *v){
+  free(v->data);
+  free(v);
+  *v = NULL;
+}
