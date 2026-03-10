@@ -26,8 +26,20 @@ Vector *vector_new(int inital_capacity){
 }
 
 void resize(Vector *v){
-  v->capacity = v->capacity * 2;
-  v->data = (int *)realloc(v->data, v->capacity * sizeof(int));
+  if (v->capacity == v->size){
+    v->capacity = v->capacity * 2;
+  } else if (v->size * 3 <= v->capacity) {
+    v->capacity = v->capacity/2;
+  } else {
+    return;
+  }
+
+  int *temp = (int *)realloc(v->data, v->capacity * sizeof(int));
+  if (temp == NULL){
+    printf("failed to realloc\n");
+    exit(1);
+  }
+  v->data = temp;
 }
 
 int vector_size(Vector *v){
@@ -61,6 +73,7 @@ int vector_pop(Vector *v){
     printf("Array out of bounds\n");
     exit(1);
   }
+  resize(v);
 
   int removed = *(v->data + v->size-1);
   v->size = v->size - 1;
@@ -87,6 +100,7 @@ void delete_at(Vector *v, int index){
     printf("Array out of bounds\n");
     exit(1);
   }
+  resize(v);
 
   while(index < v->size - 1){
     *(v->data + index) = *(v->data + (index + 1));
@@ -129,6 +143,7 @@ int main() {
 
   vector_pop(v);
   printf("Size after pop: %d\n", vector_size(v));
+  printf("capacity: %d\n", vector_capacity(v));
 
   insert_at(v, 0, 1);
   printf("Element at 1: %d\n", vector_at(v, 1));
