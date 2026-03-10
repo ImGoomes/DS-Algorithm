@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct {
   int *data;
@@ -86,17 +87,28 @@ void vector_free(Vector *v){
   free(v);
 }
 
+bool vector_is_empty(Vector *v){
+  if (v->size <= 0){
+    return true;
+  } else {
+    return false;
+  }
+}
+
 int main() {
   Vector *v = vector_new(16);
 
   int capacity = vector_capacity(v);
-
   printf("capacity: %d\n", vector_capacity(v));
+
+  printf("Is empty? %d\n", vector_is_empty(v));
 
   vector_push(v, 2);
   vector_push(v, 4);
   vector_push(v, 6);
   vector_push(v, 8);
+
+  printf("Is empty? %d\n", vector_is_empty(v));
 
   printf("Size: %d\n", vector_size(v));
   printf("Element at 3: %d\n", vector_at(v, 3));
