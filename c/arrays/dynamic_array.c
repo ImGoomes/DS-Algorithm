@@ -126,6 +126,22 @@ void delete_at(Vector *v, int index){
   v->size = v->size - 1;
 }
 
+void vector_remove(Vector *v, int item){
+  if(v->size <= 0){
+    printf("array out of bounds\n");
+    exit(1);
+  }
+
+  for(int i= 0; i < v->size; i++){
+    int value = *(v->data + i);
+
+    if(value == item){
+      delete_at(v, i);
+      i--;
+    }
+  }
+}
+
 void vector_free(Vector *v){
   free(v->data);
   free(v);
