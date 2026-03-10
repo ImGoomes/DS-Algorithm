@@ -55,7 +55,7 @@ int vector_at(Vector *v, int index){
     printf("array out of bounds\n");
     exit(1);
   }
-  
+
   return *(v->data + index);
 }
 
@@ -93,6 +93,10 @@ void insert_at(Vector *v, int value, int index){
   }
   *(v->data + i) = value;
   v->size = v->size +1;
+}
+
+void vector_prepend(Vector *v, int value) {
+    insert_at(v, value, 0);
 }
 
 void delete_at(Vector *v, int index){
