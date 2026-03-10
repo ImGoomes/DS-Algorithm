@@ -40,7 +40,7 @@ int vector_capacity(Vector *v){
 
 int vector_at(Vector *v, int index){
   if (index < 0 || index >= v->size){
-    printf("Array out of bounds\n");
+    printf("array out of bounds\n");
     exit(1);
   }
   
@@ -54,6 +54,17 @@ void vector_push(Vector *v, int value){
 
   *(v->data + v-> size) = value;
   v->size = v->size + 1;
+}
+
+int vector_pop(Vector *v){
+  if(v->size <= 0){
+    printf("Array out of bounds\n");
+    exit(1);
+  }
+
+  int removed = *(v->data + v->size-1);
+  v->size = v->size - 1;
+  return removed;
 }
 
 void insert_at(Vector *v, int value, int index){
@@ -75,7 +86,7 @@ void delete_at(Vector *v, int index){
   if(index >= v->size){
     printf("Array out of bounds\n");
     exit(1);
-}
+  }
 
   while(index < v->size - 1){
     *(v->data + index) = *(v->data + (index + 1));
@@ -115,6 +126,9 @@ int main() {
 
   printf("Size: %d\n", vector_size(v));
   printf("Element at 3: %d\n", vector_at(v, 3));
+
+  vector_pop(v);
+  printf("Size after pop: %d\n", vector_size(v));
 
   insert_at(v, 0, 1);
   printf("Element at 1: %d\n", vector_at(v, 1));
