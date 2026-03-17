@@ -23,6 +23,21 @@ LinkedList *linked_list_new(){
   return ll;
 }
 
+int size(LinkedList *ll){
+  int count = 0;
+  if (ll->head == NULL){
+    return count;
+  }
+
+  Node *pointer = ll->head;
+
+  while (pointer){
+    count++;
+    pointer = pointer->next;
+  }
+  return count;
+}
+
 int main(){
 
 }
