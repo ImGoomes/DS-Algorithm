@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct Node {
   int value;
@@ -25,10 +26,6 @@ LinkedList *linked_list_new(){
 
 int size(LinkedList *ll){
   int count = 0;
-  if (ll->head == NULL){
-    return count;
-  }
-
   Node *pointer = ll->head;
 
   while (pointer){
@@ -37,6 +34,15 @@ int size(LinkedList *ll){
   }
   return count;
 }
+
+bool is_empty(LinkedList *ll){
+  if (ll->head){
+    return false;
+  }
+
+  return true;
+}
+
 
 int main(){
 
