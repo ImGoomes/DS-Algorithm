@@ -94,6 +94,27 @@ void push_back(LinkedList *ll, int value){
   }
 }
 
+void pop_back(LinkedList *ll){
+  Node *pointer = ll->head;
+  Node *prev_node = ll->head;
+
+  while (pointer){
+    if(!pointer->next){
+      if(pointer == prev_node){
+        ll->head = NULL;
+      }
+      prev_node->next = NULL;
+      free(pointer);
+      break;
+    }
+    prev_node = pointer;
+    pointer = pointer->next;
+  }
+
+}
+
+
+
 
 int main(){
 
