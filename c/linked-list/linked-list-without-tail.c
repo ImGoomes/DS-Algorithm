@@ -67,6 +67,15 @@ void push_front(LinkedList *ll, int value){
   node->next = pointer;
 }
 
+void pop_front(LinkedList *ll){
+  Node *old_head = ll->head;
+
+  if(ll->head){
+    ll->head = ll->head->next;
+    free(old_head);
+  }
+}
+
 int main(){
 
 }
