@@ -76,6 +76,25 @@ void pop_front(LinkedList *ll){
   }
 }
 
+void push_back(LinkedList *ll, int value){
+  Node *pointer = ll->head;
+  Node *node = node_new(value);
+
+  if(!pointer){
+    ll->head = node;
+    return;
+  }
+
+  while (pointer){
+    if(!pointer->next){
+      pointer->next = node;
+      break;
+    }
+    pointer = pointer->next;
+  }
+}
+
+
 int main(){
 
 }
