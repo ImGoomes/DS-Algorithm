@@ -59,6 +59,13 @@ int value_at(LinkedList *ll, int index){
   return -1;
 }
 
+void push_front(LinkedList *ll, int value){
+  Node *pointer = ll->head;
+  Node *node = node_new(value);
+
+  ll->head = node;
+  node->next = pointer;
+}
 
 int main(){
 
