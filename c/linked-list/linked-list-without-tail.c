@@ -43,6 +43,22 @@ bool is_empty(LinkedList *ll){
   return true;
 }
 
+int value_at(LinkedList *ll, int index){
+  int count = 0;
+  Node *pointer = ll->head;
+
+  while (pointer){
+    if(count == index){
+      return pointer->value;
+    }
+
+    count++;
+    pointer = pointer->next;
+  }
+
+  return -1;
+}
+
 
 int main(){
 
