@@ -132,7 +132,7 @@ int back(LinkedList *ll){
   exit(1);
 }
 
-void insert(LinkedList *ll, int value, int index){
+void insert_at(LinkedList *ll, int value, int index){
   Node *pointer = ll->head;
   Node *prev_node = ll->head;
   Node *node = node_new(value);
@@ -161,6 +161,36 @@ void insert(LinkedList *ll, int value, int index){
 
     if(!pointer->next){
       printf("Index out of bounds");
+      return;
+    }
+
+    prev_node = pointer;
+    pointer = pointer->next;
+    count++;
+  }
+}
+
+void remove_at(LinkedList *ll, int index){
+  Node *pointer = ll->head;
+  Node *prev_node = ll->head;
+  int count = 0;
+ 
+  // Empty list
+  if(!pointer){
+    printf("Index out of bounds");
+    return;
+  }
+
+  while(pointer){
+    if(count == index){
+      if(index == 0){
+        ll->head = pointer->next;
+        free(pointer);
+        return;
+      }
+
+      prev_node->next = pointer->next;
+      free(pointer);
       return;
     }
 
