@@ -200,6 +200,13 @@ void remove_at(LinkedList *ll, int index){
   }
 }
 
+int value_n_from_end(LinkedList *ll, int n){
+  int value = size(ll) - n;
+  int index = value_at(ll, value);
+
+  return index;
+}
+
 int main(){
 
 }
