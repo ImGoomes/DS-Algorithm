@@ -120,6 +120,17 @@ int front(LinkedList *ll){
   exit(1);
 }
 
+int back(LinkedList *ll){
+  Node *pointer = ll->head;
+  while(pointer){
+    if(!pointer->next){
+      return pointer->value;
+    }
+    pointer = pointer->next;
+  }
+
+  exit(1);
+}
 
 int main(){
 
