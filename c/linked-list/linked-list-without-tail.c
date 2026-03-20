@@ -110,10 +110,15 @@ void pop_back(LinkedList *ll){
     prev_node = pointer;
     pointer = pointer->next;
   }
-
 }
 
+int front(LinkedList *ll){
+  if(ll->head){
+    return ll->head->value;
+  }
 
+  exit(1);
+}
 
 
 int main(){
