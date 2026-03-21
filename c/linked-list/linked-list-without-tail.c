@@ -207,6 +207,31 @@ int value_n_from_end(LinkedList *ll, int n){
   return index;
 }
 
+void reverse(LinkedList *ll){
+  Node *pointer = ll->head;
+  Node *next = ll->head;
+  Node *prev_node = NULL;
+
+
+  if (is_empty(ll)){
+    printf("The linked list is empty");
+    return;
+  }
+
+  while(pointer){
+    next = pointer->next;
+    pointer->next = prev_node;
+    prev_node = pointer;
+    pointer = next;
+  }
+
+  ll->head = prev_node;
+}
+
+void remove_value(LinkedList *ll, int value){
+  
+}
+
 int main(){
 
 }
