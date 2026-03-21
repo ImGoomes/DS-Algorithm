@@ -25,14 +25,14 @@ LinkedList *linked_list_new(){
 }
 
 int size(LinkedList *ll){
-  int count = 0;
   Node *pointer = ll->head;
+  int counter = 0;
 
   while (pointer){
-    count++;
+    counter++;
     pointer = pointer->next;
   }
-  return count;
+  return counter;
 }
 
 bool is_empty(LinkedList *ll){
@@ -44,15 +44,16 @@ bool is_empty(LinkedList *ll){
 }
 
 int value_at(LinkedList *ll, int index){
-  int count = 0;
   Node *pointer = ll->head;
+  int counter = 0;
+
 
   while (pointer){
-    if(count == index){
+    if(counter == index){
       return pointer->value;
     }
 
-    count++;
+    counter++;
     pointer = pointer->next;
   }
 
@@ -136,7 +137,7 @@ void insert_at(LinkedList *ll, int value, int index){
   Node *pointer = ll->head;
   Node *prev_node = ll->head;
   Node *node = node_new(value);
-  int count = 0;
+  int counter = 0;
 
   // Empty list
   if(!pointer){
@@ -148,7 +149,7 @@ void insert_at(LinkedList *ll, int value, int index){
   }
 
   while(pointer) {
-    if(count == index){
+    if(counter == index){
       if(index == 0){
         ll->head = node;
         node->next = pointer;
@@ -166,14 +167,14 @@ void insert_at(LinkedList *ll, int value, int index){
 
     prev_node = pointer;
     pointer = pointer->next;
-    count++;
+    counter++;
   }
 }
 
 void remove_at(LinkedList *ll, int index){
   Node *pointer = ll->head;
   Node *prev_node = ll->head;
-  int count = 0;
+  int counter = 0;
  
   // Empty list
   if(!pointer){
@@ -182,7 +183,7 @@ void remove_at(LinkedList *ll, int index){
   }
 
   while(pointer){
-    if(count == index){
+    if(counter == index){
       if(index == 0){
         ll->head = pointer->next;
         free(pointer);
@@ -196,7 +197,7 @@ void remove_at(LinkedList *ll, int index){
 
     prev_node = pointer;
     pointer = pointer->next;
-    count++;
+    counter++;
   }
 }
 
@@ -229,7 +230,23 @@ void reverse(LinkedList *ll){
 }
 
 void remove_value(LinkedList *ll, int value){
-  
+  Node *pointer = ll->head;
+  int counter = 0;
+
+  if (is_empty(ll)){
+    printf("The linked list is empty");
+    return;
+  }
+
+  while(pointer){
+    if(pointer->value == value){
+      remove_at(ll, counter);
+      return;
+    }
+
+    pointer = pointer->next;
+    counter++;
+  }
 }
 
 int main(){
