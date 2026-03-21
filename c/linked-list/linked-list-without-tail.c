@@ -249,6 +249,74 @@ void remove_value(LinkedList *ll, int value){
   }
 }
 
-int main(){
+void print(LinkedList *ll){
+  Node *pointer = ll->head;
+  while(pointer){
+    printf("%d -> ", pointer->value);
+    pointer = pointer->next;
+  }
+  printf("NULL\n");
+}
 
+int main(){
+ LinkedList *ll = linked_list_new();
+
+  // push_back
+  push_back(ll, 1);
+  push_back(ll, 2);
+  push_back(ll, 3);
+  push_back(ll, 4);
+  push_back(ll, 5);
+  printf("Initial: ");
+  print(ll);
+
+  // push_front
+  push_front(ll, 0);
+  printf("After push_front(0): ");
+  print(ll);
+
+  // pop_front
+  pop_front(ll);
+  printf("After pop_front: ");
+  print(ll);
+
+  // pop_back
+  pop_back(ll);
+  printf("After pop_back: ");
+  print(ll);
+
+  // size
+  printf("Size: %d\n", size(ll));
+
+  // value_at
+  printf("value_at(2): %d\n", value_at(ll, 2));
+
+  // front and back
+  printf("front: %d\n", front(ll));
+  printf("back: %d\n", back(ll));
+
+  // insert_at
+  insert_at(ll, 99, 2);
+  printf("After insert(99, 2): ");
+  print(ll);
+
+  // remove_at
+  remove_at(ll, 2);
+  printf("After remove_at(2): ");
+  print(ll);
+
+  // value_n_from_end
+  printf("value_n_from_end(2): %d\n", value_n_from_end(ll, 2));
+
+  // reverse
+  reverse(ll);
+  printf("After reverse: ");
+  print(ll);
+
+  // remove_value
+  remove_value(ll, 3);
+  printf("After remove_value(3): ");
+  print(ll);
+
+  return 0;
 }
