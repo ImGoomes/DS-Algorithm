@@ -26,6 +26,14 @@ LinkedList *linked_list_new(){
   return ll;
 }
 
+bool empty(LinkedList *ll){
+  if(!ll->head){
+    return true;
+  }
+
+  return false;
+}
+
 void enqueue(LinkedList *ll, int value){
   Node *node = node_new(value);
 
@@ -39,17 +47,24 @@ void enqueue(LinkedList *ll, int value){
   ll->tail = ll->tail->next;
 }
 
-void dequeue(LinkedList *ll, int value){
+int dequeue(LinkedList *ll){
+  Node *pointer = ll->head;
 
-}
-
-bool empty(LinkedList *ll){
-  if(!ll->head){
-    return true;
+  if(empty(ll)){
+    printf("LinkedList is empty");
+    return -1;
   }
 
-  return false;
+  int value = ll->head->value;
+  ll->head = ll->head->next;
+  if (!ll->head) {
+    ll->tail = NULL;
+  }
+  free(pointer);
+
+  return value;
 }
+
 
 void print(LinkedList *ll){
   Node *pointer = ll->head;
