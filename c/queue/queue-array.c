@@ -21,17 +21,6 @@ Arr *array_new(){
   return a;
 }
 
-void enqueue(Arr *a, int value){
-  if(full(a)){
-    printf("The queue size is full");
-    return;
-  }
-
-  *(a->data + a->tail) = value;
-  a->tail = (a->tail + 1) % a->capacity
-  a->size++;
-}
-
 bool empty(Arr *a){
   if(a->size <= 0){
     return true;
@@ -44,6 +33,29 @@ bool full(Arr *a){
     return true;
   }
   return false;
+}
+
+void enqueue(Arr *a, int value){
+  if(full(a)){
+    printf("The queue size is full");
+    return;
+  }
+
+  *(a->data + a->tail) = value;
+  a->tail = (a->tail + 1) % a->capacity;
+  a->size++;
+}
+
+int dequeue(Arr *a){
+  if(empty(a)){
+    printf("The queue is empty");
+    return -1;
+  }
+
+  int value = *(a->data + a->head);
+  a->head = (a->head + 1) % a->capacity;
+  a->size = a->size - 1;
+  return value;
 }
 
 int main(){
