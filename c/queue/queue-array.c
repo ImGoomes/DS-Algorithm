@@ -13,7 +13,7 @@ typedef struct {
 
 Arr *array_new(){
   Arr *a = (Arr *)malloc(sizeof(Arr));
-  a->capacity = 8;
+  a->capacity = 7;
   a->data = (int *)malloc(a->capacity * sizeof(int));
   a->size = 0;
   a->head = 0;
@@ -22,7 +22,14 @@ Arr *array_new(){
 }
 
 void enqueue(Arr *a, int value){
-  
+  if(full(a)){
+    printf("The queue size is full");
+    return;
+  }
+
+  *(a->data + a->tail) = value;
+  a->tail = (a->tail + 1) % a->capacity
+  a->size++;
 }
 
 bool empty(Arr *a){
