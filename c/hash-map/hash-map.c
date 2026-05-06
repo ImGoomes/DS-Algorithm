@@ -14,6 +14,15 @@ typedef struct {
   enum State state;
 } Slot;
 
+typedef struct {
+  int size;
+  Slot *slot;
+} HashMap;
+
+void add(int key, int valeu) {
+  
+}
+
 int main() {
 
 }
